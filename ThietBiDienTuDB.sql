@@ -5,7 +5,10 @@ CREATE TABLE NguoiDung (
     MaNguoiDung INT AUTO_INCREMENT PRIMARY KEY,
     TenDangNhap VARCHAR(50) NOT NULL UNIQUE,
     MatKhau VARCHAR(100) NOT NULL,
-    VaiTro ENUM('admin', 'khachhang') DEFAULT 'khachhang'
+    VaiTro ENUM('admin', 'khachhang') DEFAULT 'khachhang',
+    Ho VARCHAR(50),
+    Ten VARCHAR(50),
+    SoDienThoai VARCHAR(20)
 );
 CREATE TABLE LoaiSanPham (
     MaLoai INT AUTO_INCREMENT PRIMARY KEY,
@@ -17,6 +20,7 @@ CREATE TABLE SanPham (
     MaLoai INT,
     Gia DECIMAL(10,2) NOT NULL,
     SoLuongTon INT DEFAULT 0,
+    AnhSanPham VARCHAR(255),
     FOREIGN KEY (MaLoai) REFERENCES LoaiSanPham(MaLoai)
 );
 CREATE TABLE DonHang (
